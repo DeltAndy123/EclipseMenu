@@ -24,6 +24,8 @@ CPMAddPackage("gh:maxnut/GDR-converter#b0a04d5")
 set(RIFT_INCLUDE_MATJSON ON)
 CPMAddPackage("gh:EclipseMenu/rift#d6dd2bd")
 CPMAddPackage("gh:SpaghettDev/subprocess#e12740b")
+set(SIMDUTF_TOOLS OFF CACHE BOOL "Don't build simdutf tools" FORCE)
+set(SIMDUTF_BENCHMARKS OFF CACHE BOOL "Don't build simdutf benchmarks" FORCE)
 CPMAddPackage("gh:simdutf/simdutf@6.1.0")
 CPMAddPackage("gh:prevter/sinaps#1663e86")
 CPMAddPackage(
