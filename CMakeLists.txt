@@ -21,8 +21,10 @@ file(GLOB_RECURSE ALL_SOURCES src/*.cpp)
 
 # Filter out iOS-excluded files when building for iOS
 set(IOS_EXCLUDE_FILES
-  src/hacks/Bypass/AllowLowVolume.cpp
   src/hacks/Bot/Bot.cpp
+  src/hacks/Bypass/AllowLowVolume.cpp
+  src/hacks/Bypass/UnlockVaults.cpp
+  src/hacks/Creator/DefaultSongBypass.cpp
 )
 if (IOS OR "${CMAKE_SYSTEM_NAME}" STREQUAL "iOS")
   foreach(EXCLUDE_FILE ${IOS_EXCLUDE_FILES})
