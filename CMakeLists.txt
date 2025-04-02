@@ -27,6 +27,7 @@ set(IOS_EXCLUDE_FILES
   src/hacks/Creator/DefaultSongBypass.cpp
   src/hacks/Creator/LevelEdit.cpp
   src/hacks/Creator/HideTriggers.cpp
+  src/hacks/Creator/SliderLimit.cpp
 )
 if (IOS OR "${CMAKE_SYSTEM_NAME}" STREQUAL "iOS")
   foreach(EXCLUDE_FILE ${IOS_EXCLUDE_FILES})
