@@ -11,7 +11,7 @@ set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 project(EclipseMenu VERSION 1.0.0 LANGUAGES CXX)
 
 set(MACOS_SOURCES "")
-if (APPLE)
+if (APPLE AND NOT IOS AND NOT "${CMAKE_SYSTEM_NAME}" STREQUAL "iOS")
   enable_language(OBJCXX)
   set(MACOS_SOURCES src/modules/keybinds/mouse/macos.mm src/modules/keybinds/keyboard/macos.mm)
 endif()
@@ -65,7 +65,7 @@ if (WIN32)
 endif()
 
 # macOS specific settings
-if (APPLE)
+if (APPLE AND NOT IOS AND NOT "${CMAKE_SYSTEM_NAME}" STREQUAL "iOS")
   set_source_files_properties(${MACOS_SOURCES} PROPERTIES SKIP_PRECOMPILE_HEADERS ON)
 endif()
 
