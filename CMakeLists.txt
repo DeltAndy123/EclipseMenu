@@ -17,7 +17,20 @@ if (APPLE AND NOT IOS AND NOT "${CMAKE_SYSTEM_NAME}" STREQUAL "iOS")
 endif()
 
 # Sources
-file(GLOB_RECURSE SOURCES src/*.cpp)
+file(GLOB_RECURSE ALL_SOURCES src/*.cpp)
+
+# Filter out iOS-excluded files when building for iOS
+set(IOS_EXCLUDE_FILES
+  src/hacks/Bypass/AllowLowVolume.cpp
+  src/hacks/Bot/Bot.cpp
+)
+if (IOS OR "${CMAKE_SYSTEM_NAME}" STREQUAL "iOS")
+  foreach(EXCLUDE_FILE ${IOS_EXCLUDE_FILES})
+    list(REMOVE_ITEM ALL_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/${EXCLUDE_FILE})
+  endforeach()
+endif()
+
+set(SOURCES ${ALL_SOURCES})
 add_library(${PROJECT_NAME} SHARED ${SOURCES} ${MACOS_SOURCES})
 
 # Configure for GitHub Actions builds
